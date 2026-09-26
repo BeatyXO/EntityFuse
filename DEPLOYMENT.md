@@ -40,4 +40,4 @@ Pair outcomes:
 
 The Direct Mode suite proves the transitive contradiction state (`same_cluster == true`, `same_entity == false`, `INCONSISTENT`) and EntityGate rejection/replay behavior against the contract implementation. A separate live transitive contradiction transaction has not been claimed because the already-finalized production records do not provide a semantically valid SAME sequence across the known DIFFERENT edge; no fabricated live result is recorded.
 
-Final repository commit containing this evidence: recorded by Git after this documentation update.
+Final repository commit containing this evidence: `bc08a3d`.

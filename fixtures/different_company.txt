@@ -1,0 +1,5 @@
+Organization: Harbor Meridian Analytics Inc.
+Registration: DE-99814
+Jurisdiction: Delaware, United States
+Official domain: hma-inc.example
+No affiliation with Harbor Meridian Analytics Limited of Nigeria.

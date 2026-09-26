@@ -218,7 +218,10 @@ RIGHT RECORD:
 RIGHT SOURCE:
 {right_source}
 """
-            return gl.nondet.exec_prompt(prompt).strip()
+            raw_result = gl.nondet.exec_prompt(prompt)
+            if isinstance(raw_result, dict):
+                return json.dumps(raw_result, separators=(",", ":"))
+            return str(raw_result).strip()
 
         result = gl.eq_principle.prompt_comparative(
             evaluate_pair,

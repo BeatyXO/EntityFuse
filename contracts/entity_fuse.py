@@ -135,7 +135,7 @@ class EntityFuse(gl.Contract):
         try:
             attrs = json.loads(attributes_json or "{}")
             if not isinstance(attrs, dict):
-                raise ValueError("attributes_json must encode an object")
+                raise gl.vm.UserError("attributes_json must encode an object")
         except Exception:
             raise gl.vm.UserError("invalid attributes_json")
 

@@ -1,0 +1,10 @@
+{
+  "fixture_commit": "8a71fb5116574cd7063ef7e16565eaba83d36c28",
+  "base": "https://raw.githubusercontent.com/BeatyXO/EntityFuse/8a71fb5116574cd7063ef7e16565eaba83d36c28/fixtures/",
+  "records": {
+    "same_left": "acme_registry_a.txt",
+    "same_right": "acme_registry_alias.txt",
+    "different": "different_company.txt",
+    "ambiguous": "ambiguous_listing.txt"
+  }
+}

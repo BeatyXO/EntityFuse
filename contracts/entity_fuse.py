@@ -115,7 +115,7 @@ class EntityFuse(gl.Contract):
         display_name: str,
         jurisdiction: str,
         source_url: str,
-        attributes_json: dict,
+        attributes_json: typing.Any,
     ) -> u256:
         if self.record_count >= u256(_MAX_RECORDS):
             raise gl.vm.UserError("record cap reached")
@@ -131,6 +131,11 @@ class EntityFuse(gl.Contract):
             if any(ch.isspace() for ch in source_url):
                 raise gl.vm.UserError("source_url must not contain whitespace")
         attrs = attributes_json
+        if isinstance(attrs, str):
+            try:
+                attrs = json.loads(attrs)
+            except Exception:
+                raise gl.vm.UserError("invalid attributes_json")
         if not isinstance(attrs, dict):
             raise gl.vm.UserError("attributes_json must encode an object")
         if len(json.dumps(attrs, separators=(",", ":"))) > 6000:

@@ -57,8 +57,8 @@ python -m pytest -q
 python scripts/preflight.py
 ```
 
-The handoff intentionally contains no claimed live deployment. The finishing agent must run the real Direct Mode and Studionet lifecycle and record only evidence it actually obtains.
+Live Studionet evidence is recorded in [DEPLOYMENT.md](DEPLOYMENT.md). The ambiguous fixture remained unresolved after validator disagreement, which is the required safe outcome for insufficient evidence.
 
 ## Remote preparation status
 
-The GitHub repository has already been populated and its evidence fixtures are pinned to immutable commit `8a71fb5116574cd7063ef7e16565eaba83d36c28`. The remaining work is GenLayer-runtime-specific validation, Direct Mode coverage, stable Studionet deployment/lifecycle proof, deployment documentation, and the final push.
+The evidence fixtures are pinned to immutable commit `8a71fb5116574cd7063ef7e16565eaba83d36c28`.

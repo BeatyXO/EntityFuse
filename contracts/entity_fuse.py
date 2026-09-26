@@ -115,7 +115,7 @@ class EntityFuse(gl.Contract):
         display_name: str,
         jurisdiction: str,
         source_url: str,
-        attributes_json: str,
+        attributes_json: dict,
     ) -> u256:
         if self.record_count >= u256(_MAX_RECORDS):
             raise gl.vm.UserError("record cap reached")
@@ -130,14 +130,11 @@ class EntityFuse(gl.Contract):
                 raise gl.vm.UserError("source_url must use https")
             if any(ch.isspace() for ch in source_url):
                 raise gl.vm.UserError("source_url must not contain whitespace")
-        if len(attributes_json) > 6000:
+        attrs = attributes_json
+        if not isinstance(attrs, dict):
+            raise gl.vm.UserError("attributes_json must encode an object")
+        if len(json.dumps(attrs, separators=(",", ":"))) > 6000:
             raise gl.vm.UserError("attributes_json too large")
-        try:
-            attrs = json.loads(attributes_json or "{}")
-            if not isinstance(attrs, dict):
-                raise gl.vm.UserError("attributes_json must encode an object")
-        except Exception:
-            raise gl.vm.UserError("invalid attributes_json")
 
         canonical_key = namespace.strip() + "::" + external_id.strip()
         if self.record_keys.get(canonical_key, u256(0)) != u256(0):

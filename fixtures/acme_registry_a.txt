@@ -1,0 +1,5 @@
+Registry: Harbor Meridian Analytics Limited
+Registration: HM-20481
+Jurisdiction: Lagos, Nigeria
+Official domain: harbor-meridian.example
+Contact: registry@harbor-meridian.example
